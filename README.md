@@ -1,1 +1,1 @@
-# adv-fe
+# Advanced Frontend Course
