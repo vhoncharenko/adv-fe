@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lesson 1 | Test post</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+<div class="layout">
+    <div class="content">
+        <div class="posts-container">
+            <div class="posts-container__json">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-handlebars-template" id="posts-json-template">
+    {{#json posts}}
+        {{> post-json}}
+    {{/json}}
+</script>
+
+<script type="text/x-handlebars-template" id="post-json-template">
+    <div class="posts-container__json__post {{class}}">
+        {{~description~}}
+    </div>
+</script>
+
+<script src="/libs/jquery/dist/jquery.js"></script>
+<script src="/libs/handlebars/handlebars.js"></script>
+<script src="/data.js"></script>
+<script src="/test.js"></script>
+</body>
+</html>

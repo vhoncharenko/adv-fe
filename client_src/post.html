@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PinApp | Page post</title>
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+
+    <body>
+        <div class="layout">
+            <div class="header">
+                <div class="header-layout">
+                    <div class="application-logo"></div>
+                    <div class="application-user">
+                        <div class="application-user__login">user@email</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="post-container">
+                    <div class="post-container__full-view">
+                    </div>
+
+                    <div class="post-container__comments">
+                    </div>
+
+                    <div class="post-container__related-posts">
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+            </div>
+        </div>
+
+        <script type="text/x-handlebars-template" id="post-full-view-template">
+            <div class="post {{class}}" data-id="{{id}}">
+                <div class="post__island">
+                    <div class="post__img-wrapper">
+                        <img class="post__img" src="{{imgUrl}}" />
+                    </div>
+                    <div class="post__owner">{{userId}}:</div>
+                    <div class="post__description">{{{description}}}</div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="post-comments-template">
+            {{#each comments}}
+                {{> post-comment}}
+            {{/each}}
+        </script>
+
+        <script type="text/x-handlebars-template" id="post-comment-template">
+            <div class="post-comment {{stripes @index}}">
+                <div class="post-comment__owner">{{username}}:</div>
+                <div class="post-comment__text">{{{text}}}</div>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="posts-related-template">
+            {{#each posts_related}}
+                {{> post-related class="posts-container__post" }}
+            {{/each}}
+        </script>
+
+        <script type="text/x-handlebars-template" id="post-related-template">
+            <div class="post-related {{class}}" data-id="{{id}}">
+                <div class="post-related__island">
+                    <div class="post-related__img-wrapper">
+                        <img class="post-related__img" src="{{imgUrl}}" />
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script src="/libs/jquery/dist/jquery.js"></script>
+        <script src="/libs/handlebars/handlebars.js"></script>
+        <script src="/data.js"></script>
+        <script src="/post.js"></script>
+    </body>
+</html>
