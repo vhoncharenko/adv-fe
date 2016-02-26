@@ -245,6 +245,6 @@ img.post-related__img {
     width: 100%;
 }
 .post-comment_odd,
-.posts-container__stripes__post_odd{
+.posts-container__striped-post_odd{
     background: #eee;
 }

@@ -14,8 +14,8 @@ $( document ).ready( function () {
     Handlebars.registerHelper('stripes', function(posts, options) {
         return posts.map(function( post, index ) {
             var postClass = (index % 2 == 0)
-                ? 'posts-container__stripes__post_even'
-                : 'posts-container__stripes__post_odd';
+                ? options.hash.even
+                : options.hash.odd;
 
             return '<div class="'
                 + postClass

@@ -19,13 +19,11 @@
 </div>
 
 <script type="text/x-handlebars-template" id="posts-json-template">
-    {{#json posts}}
-    {{/json}}
+    {{json posts}}
 </script>
 
 <script type="text/x-handlebars-template" id="posts-stripe-template">
-    {{#stripes posts}}
-        {{desciption}}
+    {{#stripes posts even="posts-container__striped-post_even" odd="posts-container__striped-post_odd"}}
     {{/stripes}}
 </script>
 
