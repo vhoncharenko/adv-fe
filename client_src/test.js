@@ -1,29 +1,49 @@
 $( document ).ready( function () {
 
     var postsJsonTemplate = Handlebars.compile( $( '#posts-json-template' ).html() );
+    var postsStripeTemplate = Handlebars.compile( $( '#posts-stripe-template' ).html() );
 
-    Handlebars.registerPartial( 'post-json', $( '#post-json-template' ).html() );
-
-    Handlebars.registerHelper( 'json', function(rows, options) {
-        var buffer = [],
-            i, len;
-
-        for (i = 0, len = rows.length; i < len; ++i) {
-            var row = rows[i];
-            row.class = ( i + 1 ) % 2 === 0 ? 'even' : 'odd';
-
-            buffer.push( options.fn(row) );
-        }
-
-        return buffer.join('');
+    Handlebars.registerHelper( 'json', function( obj ) {
+        return new Handlebars.SafeString(
+            '<pre>'
+            + Handlebars.escapeExpression( JSON.stringify( obj, false, 4 ) )
+            + '<pre>'
+        );
     });
 
-    renderJsonPosts();
+    Handlebars.registerHelper('stripes', function(posts, options) {
+        return posts.map(function( post, index ) {
+            var postClass = (index % 2 == 0)
+                ? 'posts-container__stripes__post_even'
+                : 'posts-container__stripes__post_odd';
+
+            return '<div class="'
+                + postClass
+                + '">'
+                + post.description
+                + '</div>';
+        }).join( '' );
+    });
+
+    function render() {
+        renderJsonPosts();
+        renderStripePosts();
+    }
+
+    render();
 
     function renderJsonPosts() {
         var posts = Data.getPosts();
 
         $( '.posts-container__json' ).html( postsJsonTemplate({
+            posts: posts
+        }) );
+    }
+
+    function renderStripePosts() {
+        var posts = Data.getPosts();
+
+        $( '.posts-container__stripes' ).html( postsStripeTemplate({
             posts: posts
         }) );
     }

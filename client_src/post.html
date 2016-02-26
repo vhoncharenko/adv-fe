@@ -52,14 +52,14 @@
         </script>
 
         <script type="text/x-handlebars-template" id="post-comment-template">
-            <div class="post-comment {{stripes @index}}">
+            <div class="post-comment_{{#if (stripes @index)}}even{{else}}odd{{/if}}">
                 <div class="post-comment__owner">{{username}}:</div>
                 <div class="post-comment__text">{{{text}}}</div>
             </div>
         </script>
 
         <script type="text/x-handlebars-template" id="posts-related-template">
-            {{#each posts_related}}
+            {{#each postsRelated}}
                 {{> post-related class="posts-container__post" }}
             {{/each}}
         </script>

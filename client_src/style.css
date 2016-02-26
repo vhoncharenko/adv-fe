@@ -226,9 +226,6 @@ a {
 .post-comment {
     margin-bottom: 5px;
 }
-.post-comment.odd {
-    background: #eee;
-}
 .post-comment__owner {
     float: left;
     margin-right: 20px;
@@ -247,6 +244,7 @@ a {
 img.post-related__img {
     width: 100%;
 }
-.posts-container__json__post.even {
+.post-comment_odd,
+.posts-container__stripes__post_odd{
     background: #eee;
 }

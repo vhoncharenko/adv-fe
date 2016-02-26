@@ -8,7 +8,7 @@ $( document ).ready( function () {
     Handlebars.registerPartial( 'post-comment', $( '#post-comment-template' ).html() );
 
     Handlebars.registerHelper('stripes', function(index, options) {
-        return (index % 2 == 0) ? 'even' : 'odd';
+        return index % 2 == 0;
     });
 
     render();
@@ -42,7 +42,7 @@ $( document ).ready( function () {
         var relatedPosts = Data.getRelatedPosts();
 
         $( '.post-container__related-posts' ).html( postsRelatedTemplate({
-            posts_related: relatedPosts
+            postsRelated: relatedPosts
         }) );
     }
 
@@ -52,7 +52,6 @@ $( document ).ready( function () {
             if ( id === undefined ) {
                 return;
             }
-            console.log( 'click: post id - ' + id );
             window.location.href = 'post.html?id=' + id;
         } );
     }

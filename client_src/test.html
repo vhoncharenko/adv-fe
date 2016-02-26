@@ -11,20 +11,23 @@
         <div class="posts-container">
             <div class="posts-container__json">
             </div>
+
+            <div class="posts-container__stripes">
+            </div>
         </div>
     </div>
 </div>
 
 <script type="text/x-handlebars-template" id="posts-json-template">
     {{#json posts}}
-        {{> post-json}}
     {{/json}}
 </script>
 
-<script type="text/x-handlebars-template" id="post-json-template">
-    <div class="posts-container__json__post {{class}}">
-        {{~description~}}
-    </div>
+<script type="text/x-handlebars-template" id="posts-stripe-template">
+    {{#stripes posts}}
+    !!!!!!!!!!!!!
+        {{desciption}}
+    {{/stripes}}
 </script>
 
 <script src="/libs/jquery/dist/jquery.js"></script>
